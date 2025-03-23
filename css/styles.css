@@ -1,0 +1,340 @@
+/* ----------------------------- Global Styles ----------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Righteous', sans-serif;
+    color: #fff;
+    background-color: #111827;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    container-type: inline-size;
+    container-name: profile-container;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ----------------------------- Typography ----------------------------- */
+h1 { 
+    font-family:'Rubik Dirt', monospace, sans-serif;
+    font-weight: 500;
+    font-size: 2.25rem;
+    margin-top: 10px;
+    position: relative; 
+    color: #fff;
+    animation: grow 2s steps(16) forwards;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+p {
+    font-family:'Rubik Dirt', monospace, sans-serif; 
+}
+
+/* ---------------------- Animación para h1 ---------------------- */
+h1::before {
+    content: '';
+    width: 2px;
+    height: 100%;
+    background-color: #fff;
+    position: absolute;
+    right: 0;
+    border-radius: 4px;
+    animation: titilar 0.3s infinite alternate, hideCursor 1s forwards 3s;
+}
+
+/* ---------------------- Keyframes ---------------------- */
+@keyframes grow {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes titilar {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes hideCursor {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+body {
+    overflow: hidden;
+}
+
+/* -------------------------- Profile Section -------------------------- */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    width: min(60vw, 800px); 
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #48e;
+    box-shadow: 0 0 26px #48e, 0 0 6px #48e;
+    background-color: #1f2937;
+    border-radius: 35px;
+    position: relative;
+    box-sizing: border-box;
+    max-width: 100%; 
+    animation: fadeInUp 0.8s ease-out forwards;
+    overflow: hidden;
+}
+
+/* Animación de aparición desde el centro */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50%); 
+        overflow: hidden;
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); 
+        overflow: hidden;
+    }
+}
+
+/* -------------------------- Profile Tags -------------------------- */
+.profile-tags {
+    position: relative; 
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: #1F1F1F;
+    box-shadow: 0 0 8px #48e;
+    border-radius: 16px;
+    overflow: hidden;
+    z-index: 1; 
+    margin-bottom: 10px;
+}
+
+/* -------------------- Animación de neon-flicker solo en hover -------------------- */
+.profile-tags:hover {
+    animation: parpadear-linea 1.5s infinite alternate;
+}
+
+.profile-tags p {
+    display: flex;
+    align-items: center; 
+    margin: 0; 
+    line-height: 1; 
+    color: #D3A6FF;
+}
+
+/* ------------------ Keyframes para la animación parpadeo morado claro ------------------ */
+@keyframes parpadear-linea {
+    0% {
+        box-shadow: 0px 0px 20px #9f68ff ;
+    }
+
+    25% {
+        box-shadow: none;
+    }
+
+    30% {
+        box-shadow: 0px 0px 20px #9f68ff ;
+    }
+
+    35% {
+        box-shadow: none;
+    }
+
+    40% {
+        box-shadow: 0px 0px 20px #9f68ff;
+    }
+
+    45% {
+        box-shadow: none;
+    }
+
+    60% {
+        box-shadow: 0px 0px 20px #9f68ff;
+    }
+
+    100% {
+        box-shadow: none;
+    }
+}
+
+
+/* -------------------------- Profile buttons -------------------------- */
+.button {
+    padding: 5px 10px;
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #48e;
+    border-radius: 15px;
+    letter-spacing: 3px;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    text-align: center;
+    z-index: 0;
+    transition: border 0.3s ease-in-out;
+    white-space: nowrap; 
+    line-height: 1;
+}
+
+.button:hover {
+    border: 2px solid #fff;
+}
+
+.button::before {
+    content: '';
+    background-color: #48e;
+    display: block;
+    height: 200%;
+    width: 140%;
+    position: absolute;
+    z-index: -1;
+    transition: top 0.6s, left 0.6s;
+    border-radius: 50%;
+    top: 100%;
+    left: 30%;
+}
+
+.button:hover::before {
+    top: -35%;
+    left: -20%;
+}
+
+.button a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    position: relative;
+    z-index: 1; 
+}
+
+/* ----------------------------- Image Section ----------------------------- */
+.insomnia-img {
+    width: 100%; 
+    max-width: 250px;
+    height: 100%; 
+    border-radius: 50%; 
+    box-shadow: 0 0 20px  #0009, 0 0 20px  #0009;
+}
+
+.insomnia-img:hover {
+    box-shadow: 0 0 26px #48e , 0 0 6px #48e;
+}
+
+.insomnia-img:active {
+    box-shadow: 0 0 26px rgb(133, 21, 21);
+    content: url('../img/2.png');
+}
+
+/* --------------------------- Container Queries --------------------------- */
+@container profile-container (max-width: 670px) {
+    .profile-container {
+        box-shadow: none !important;
+        width: 100%;
+        padding: 15px;
+        margin: 0 auto;
+        margin-top: 12px;
+        position: static; 
+        animation: fadeInUp 0.8s ease-out;
+        animation-fill-mode: forwards;
+    }
+
+    h1 {
+        font-size: 30px;
+        margin: 0;
+        margin-bottom: 12px;
+    }
+
+    .insomnia-img {
+        animation: shadowPulse 2s infinite ease-in-out;
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
+
+    .insomnia-img:active {
+        box-shadow: 0 0 26px rgb(133, 21, 21);
+        content: url('../img/2.png');
+        animation: none;
+    }
+
+    .profile-tags {
+        padding: 9px 16px;
+        font-size: 14px;
+        margin: 0;
+        margin-bottom: 12px;
+        animation: parpadear-linea 1.5s infinite alternate;
+
+    }
+
+    .button-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);  
+        gap: 8px;
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    .button {
+        padding: 5px 8px; 
+        font-size: 14px; 
+        border: 2px solid #fff;
+        background-color: #48e; 
+        white-space: nowrap;
+        overflow: hidden; 
+    }
+
+    html, body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden; 
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* ------------------------- Ajuste de tamaño en resoluciones más pequeñas --------------------------- */
+@media (max-width: 460px) {
+    .profile-container {
+        box-shadow: none !important;
+    }
+    
+    .profile-tags {
+        margin-bottom: 10px;
+        animation: parpadear-linea 1.5s infinite alternate;
+    }
+
+    .button {
+        font-size: 12px; 
+        padding: 8px 2px;
+    }
+
+    html, body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden; 
+        width: 100%;
+        height: 100%;
+    }
+}  
